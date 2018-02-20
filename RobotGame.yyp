@@ -127,6 +127,14 @@
             }
         },
         {
+            "Key": "cc490172-4d47-4c5b-bdeb-4bb95ffd3b6f",
+            "Value": {
+                "id": "12802060-0a19-42f8-ac51-71841c36022b",
+                "resourcePath": "sprites\\spr_robot\\spr_robot.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
             "Value": {
                 "id": "65937812-8f91-4c30-97b0-fa426001f352",

@@ -183,6 +183,14 @@
             }
         },
         {
+            "Key": "d6f2ae01-12bd-4dcb-ad5d-77f1bd9f9fe1",
+            "Value": {
+                "id": "d3f8e1f4-cbf6-4399-88de-a1c29bfc820e",
+                "resourcePath": "sprites\\spr_robot_attack_down\\spr_robot_attack_down.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d9d54a16-44a0-4aac-87aa-2f04063b058d",
             "Value": {
                 "id": "34f3200a-2907-4876-88c8-121a8863a809",

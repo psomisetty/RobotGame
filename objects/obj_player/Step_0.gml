@@ -4,78 +4,105 @@ if(keyboard_check_pressed(ord(global.button_player_weight)))
 	attackSpeed = attackSpeed == fastSpeed ? slowSpeed : fastSpeed;
 }
 
-var buttons_used = 0;
-var oldX = x;
-var oldY = y;
-var sprite_index_change = sprite_index;
-var image_xscale_change = image_scale;
-var image_speed_change = image_speed;
-var x_change = x;
-var y_change = y;
+var buttonsUsed = 0;
+var attacking = false;
+var moving = true;
 
-if(keyboard_check(ord(global.button_player_right)))
+if(keyboard_check(ord(global.button_player_right))) // Go right
 {
-	sprite_index_change = spr_robot_right;
-	x_change += walkSpeed;
-	image_speed_change = walkSpeed / 3;
-	buttons_used++;
+	imageDirection = "right";
+	buttonsUsed++;
 }
-
-if(keyboard_check(ord(global.button_player_left)))
+else if(keyboard_check(ord(global.button_player_left))) // Go left
 {
-	sprite_index_change = spr_robot_right;
-	image_xscale_change = -1 * image_scale;
-	x_change -= walkSpeed;
-	image_speed_change = walkSpeed / 3;
-	buttons_used++;
+	imageDirection = "left";
+	buttonsUsed++;
 }
-
-if(keyboard_check(ord(global.button_player_up)))
+else if(keyboard_check(ord(global.button_player_up))) // Go up
 {
-	sprite_index_change = spr_robot_up;
-	y_change -= walkSpeed;
-	image_speed_change = walkSpeed / 3;
-	buttons_used++;
+	imageDirection = "up";
+	buttonsUsed++;
 }
-
-if(keyboard_check(ord(global.button_player_down)))
+else if(keyboard_check(ord(global.button_player_down))) // Go down
 {
-	sprite_index_change = spr_robot_down;
-	y_change += walkSpeed;
-	image_speed_change = walkSpeed / 3;
-	buttons_used++;
+	imageDirection = "down";
+	buttonsUsed++;
+}
+else // Not moving
+{
+	moving = false;
 }
 
 if(keyboard_check(ord(global.button_player_attack)))
 {
-	x_change = oldX;
-	y_change = oldY;
-	image_speed_change = attackSpeed / 3;
-	switch(sprite_index)
-	{
-		case (spr_robot_down):
-		{
-			sprite_index_change = spr_robot_attack_down;
-			break;
-		}
-		default:
-		{
-			sprite_index_change = sprite_index;
-			break;
-		}
-	}
-	buttons_used++;
+	attacking = true;
+	buttonsUsed++;
+	moving = false;
 }
 
-if (buttons_used == 0)
+if (buttonsUsed == 0)
 {
 	image_speed = 0;
 }
-else
+else if (attacking)
 {
-	x = x_change;
-	y = y_change;
-	sprite_index = sprite_index_change;
-	image_speed = image_speed_change;
-	image_xscale = image_xscale_change;
+	image_speed = attackSpeed / 3;
+	image_xscale = imageScale;
+	switch (imageDirection)
+	{
+		case ("left"):
+		{
+			sprite_index = spr_robot_attack_right;
+			image_xscale = -1 * imageScale;
+			break;
+		}
+		case ("right"):
+		{
+			sprite_index = spr_robot_attack_right;
+			break;
+		}
+		case ("up"):
+		{
+			sprite_index = spr_robot_attack_up;
+			break;
+		}
+		case ("down"):
+		{
+			sprite_index = spr_robot_attack_down;
+			break;
+		}
+	}
+}
+else if (moving and not attacking)
+{
+	image_speed = walkSpeed / 3;
+	image_xscale = imageScale;
+	switch (imageDirection)
+	{
+		case ("left"):
+		{
+			sprite_index = spr_robot_right;
+			image_xscale = -1 * imageScale;
+			x -= walkSpeed;
+			break;
+		}
+		case ("right"):
+		{
+			sprite_index = spr_robot_right;
+			x += walkSpeed;
+			break;
+		}
+		case ("up"):
+		{
+			sprite_index = spr_robot_up;
+			y -= walkSpeed;
+			break;
+		}
+		case ("down"):
+		{
+			sprite_index = spr_robot_down;
+			y += walkSpeed;
+			break;
+		}
+	}
 }

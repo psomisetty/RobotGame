@@ -119,6 +119,22 @@
             }
         },
         {
+            "Key": "85c0a76b-7470-4c7c-a096-4c835ffa571a",
+            "Value": {
+                "id": "38551d78-d1b9-4379-bc38-1f66a97b7297",
+                "resourcePath": "sprites\\spr_robot_attack_right\\spr_robot_attack_right.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a2ef7f6c-e210-477c-b21b-4ce70a3ac5e4",
+            "Value": {
+                "id": "737478a2-b717-4298-969d-9ef42d121c7f",
+                "resourcePath": "sprites\\spr_robot_attack_up\\spr_robot_attack_up.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "af76d16e-bba6-49f4-a6af-4c6e3f100418",
             "Value": {
                 "id": "4aea1cef-cd61-4905-927b-595b92da5419",

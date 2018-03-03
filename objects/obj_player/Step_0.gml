@@ -33,18 +33,18 @@ else // Not moving
 	moving = false;
 }
 
-if(keyboard_check(ord(global.button_player_attack)))
+if(keyboard_check(ord(global.button_player_attack))) // Player is attacking
 {
 	attacking = true;
 	buttonsUsed++;
 	moving = false;
 }
 
-if (buttonsUsed == 0)
+if (buttonsUsed == 0) // No buttons are being used, default to idle
 {
 	image_speed = 0;
 }
-else if (attacking)
+else if (attacking) // Player is attacking, select appropriate attack animation
 {
 	image_speed = attackSpeed / 3;
 	image_xscale = imageScale;
@@ -73,7 +73,7 @@ else if (attacking)
 		}
 	}
 }
-else if (moving and not attacking)
+else if (moving and not attacking) // Player is moving, select appropriate movement animation
 {
 	image_speed = walkSpeed / 3;
 	image_xscale = imageScale;

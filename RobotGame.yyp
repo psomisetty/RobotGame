@@ -223,6 +223,22 @@
             }
         },
         {
+            "Key": "e8a79fe5-e251-49ec-a27d-50d3b333aa8f",
+            "Value": {
+                "id": "3fe6b4c8-2225-4020-ae2a-9bf41fa89670",
+                "resourcePath": "sprites\\spr_enemy_spider\\spr_enemy_spider.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e9da4b22-b24f-433f-8679-a6a60e17f8da",
+            "Value": {
+                "id": "7e2324df-6079-4480-a16c-2437a9f4a637",
+                "resourcePath": "objects\\obj_enemy_spider\\obj_enemy_spider.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "f6acd0da-1ef6-4500-948a-b57c87fc4e0d",
             "Value": {
                 "id": "e09b358b-eace-45e4-85ba-57d3d75bf178",

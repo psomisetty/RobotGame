@@ -42,10 +42,38 @@ if(keyboard_check(ord(global.button_player_attack))) // Player is attacking
 
 if (buttonsUsed == 0) // No buttons are being used, default to idle
 {
-	image_speed = 0;
+	image_index = idleTimer <= 0 ? 0 : image_index;
+	idleTimer++;
+	image_speed = slowSpeed / 25;
+	image_xscale = imageScale;
+	switch (imageDirection)
+	{
+		case ("left"):
+		{
+			sprite_index = spr_robot_idle_right;
+			image_xscale = -1 * imageScale;
+			break;
+		}
+		case ("right"):
+		{
+			sprite_index = spr_robot_idle_right;
+			break;
+		}
+		case ("up"):
+		{
+			sprite_index = spr_robot_idle_up;
+			break;
+		}
+		case ("down"):
+		{
+			sprite_index = spr_robot_idle_down;
+			break;
+		}
+	}
 }
 else if (attacking) // Player is attacking, select appropriate attack animation
 {
+	idleTimer = 0;
 	image_speed = attackSpeed / 3;
 	image_xscale = imageScale;
 	switch (imageDirection)
@@ -75,6 +103,7 @@ else if (attacking) // Player is attacking, select appropriate attack animation
 }
 else if (moving and not attacking) // Player is moving, select appropriate movement animation
 {
+	idleTimer = 0;
 	image_speed = walkSpeed / 3;
 	image_xscale = imageScale;
 	switch (imageDirection)

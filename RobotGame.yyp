@@ -79,6 +79,14 @@
             }
         },
         {
+            "Key": "1371c093-d794-4307-8513-57a9fb5b5da5",
+            "Value": {
+                "id": "4929ab08-849e-4059-8567-63610b3af948",
+                "resourcePath": "sprites\\spr_robot_idle_right\\spr_robot_idle_right.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "378785bc-e9ca-42f9-b44b-c14167f52109",
             "Value": {
                 "id": "0f74ed01-1463-46ef-8fe0-133aa4f3c243",
@@ -111,6 +119,14 @@
             }
         },
         {
+            "Key": "76cbd39b-a67d-4cd2-9ece-5398a9ca0093",
+            "Value": {
+                "id": "918ca112-31c7-418c-9a52-b3e885e6e620",
+                "resourcePath": "sprites\\spr_robot_idle_up\\spr_robot_idle_up.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7e9ba7f8-e03b-4177-b379-8e261b37bff5",
             "Value": {
                 "id": "d7afe925-f80f-4297-b17d-e58a09596f58",
@@ -131,6 +147,14 @@
             "Value": {
                 "id": "737478a2-b717-4298-969d-9ef42d121c7f",
                 "resourcePath": "sprites\\spr_robot_attack_up\\spr_robot_attack_up.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a97cb037-cf37-4862-bd2b-bf9b9da4a2a0",
+            "Value": {
+                "id": "0a666afe-9443-485c-ac39-7ab8932ac04f",
+                "resourcePath": "sprites\\spr_robot_idle_down\\spr_robot_idle_down.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -236,6 +260,14 @@
                 "id": "7e2324df-6079-4480-a16c-2437a9f4a637",
                 "resourcePath": "objects\\obj_enemy_spider\\obj_enemy_spider.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "f63f2d1c-13e7-441e-82c3-0a90078afd66",
+            "Value": {
+                "id": "1dd65f8d-26c2-478a-82fa-6541ae85126f",
+                "resourcePath": "sprites\\spr_robot_idleLong_down\\spr_robot_idleLong_down.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

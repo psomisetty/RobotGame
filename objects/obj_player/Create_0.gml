@@ -9,3 +9,4 @@ fastSpeed = 4;
 attackSpeed = slowSpeed;
 walkSpeed = slowSpeed;
 imageDirection = "down";
+idleTimer = 0;

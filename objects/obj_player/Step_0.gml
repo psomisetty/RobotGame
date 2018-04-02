@@ -2,136 +2,74 @@ if(keyboard_check_pressed(ord(global.button_player_weight)))
 {
 	walkSpeed = walkSpeed == fastSpeed ? slowSpeed : fastSpeed;
 	attackSpeed = attackSpeed == fastSpeed ? slowSpeed : fastSpeed;
+	idleSpeed = idleSpeed == fastSpeed ? slowSpeed : fastSpeed;
 }
 
-var buttonsUsed = 0;
-var attacking = false;
-var moving = true;
+var action = "move";
+var oldY = y;
+var oldX = x;
 
 if(keyboard_check(ord(global.button_player_right))) // Go right
 {
 	imageDirection = "right";
-	buttonsUsed++;
+	x += walkSpeed;
 }
 else if(keyboard_check(ord(global.button_player_left))) // Go left
 {
 	imageDirection = "left";
-	buttonsUsed++;
+	x -= walkSpeed;
 }
 else if(keyboard_check(ord(global.button_player_up))) // Go up
 {
 	imageDirection = "up";
-	buttonsUsed++;
+	y -= walkSpeed;
 }
 else if(keyboard_check(ord(global.button_player_down))) // Go down
 {
 	imageDirection = "down";
-	buttonsUsed++;
+	y += walkSpeed;
 }
 else // Not moving
 {
-	moving = false;
+	action = "idle";
+	if not idling
+	{
+		idling = true;
+		idleStartTime = current_time; // Time in milliseconds
+	} 
+	else if (current_time - idleStartTime >= longIdleThreshold) 
+	{
+		action = "idleLong";
+	}
 }
 
 if(keyboard_check(ord(global.button_player_attack))) // Player is attacking
 {
-	attacking = true;
-	buttonsUsed++;
-	moving = false;
+	action = "attack";
 }
 
-if (buttonsUsed == 0) // No buttons are being used, default to idle
+image_xscale = imageDirection == "left" ? -1 * imageScale : imageScale;
+var subMap = spriteMap[? imageDirection];
+sprite_index = subMap[? action];
+
+switch (action)
 {
-	image_index = idleTimer <= 0 ? 0 : image_index;
-	idleTimer++;
-	image_speed = slowSpeed / 25;
-	image_xscale = imageScale;
-	switch (imageDirection)
-	{
-		case ("left"):
-		{
-			sprite_index = spr_robot_idle_right;
-			image_xscale = -1 * imageScale;
-			break;
-		}
-		case ("right"):
-		{
-			sprite_index = spr_robot_idle_right;
-			break;
-		}
-		case ("up"):
-		{
-			sprite_index = spr_robot_idle_up;
-			break;
-		}
-		case ("down"):
-		{
-			sprite_index = spr_robot_idle_down;
-			break;
-		}
-	}
-}
-else if (attacking) // Player is attacking, select appropriate attack animation
-{
-	idleTimer = 0;
-	image_speed = attackSpeed / 3;
-	image_xscale = imageScale;
-	switch (imageDirection)
-	{
-		case ("left"):
-		{
-			sprite_index = spr_robot_attack_right;
-			image_xscale = -1 * imageScale;
-			break;
-		}
-		case ("right"):
-		{
-			sprite_index = spr_robot_attack_right;
-			break;
-		}
-		case ("up"):
-		{
-			sprite_index = spr_robot_attack_up;
-			break;
-		}
-		case ("down"):
-		{
-			sprite_index = spr_robot_attack_down;
-			break;
-		}
-	}
-}
-else if (moving and not attacking) // Player is moving, select appropriate movement animation
-{
-	idleTimer = 0;
-	image_speed = walkSpeed / 3;
-	image_xscale = imageScale;
-	switch (imageDirection)
-	{
-		case ("left"):
-		{
-			sprite_index = spr_robot_right;
-			image_xscale = -1 * imageScale;
-			x -= walkSpeed;
-			break;
-		}
-		case ("right"):
-		{
-			sprite_index = spr_robot_right;
-			x += walkSpeed;
-			break;
-		}
-		case ("up"):
-		{
-			sprite_index = spr_robot_up;
-			y -= walkSpeed;
-			break;
-		}
-		case ("down"):
-		{
-			sprite_index = spr_robot_down;
-			y += walkSpeed;
-			break;
-		}
-	}
+	case "attack":
+		idling = false;
+		y = oldY;
+		x = oldX;
+		image_speed = attackSpeed / 3;
+		break;
+	case "move":
+		idling = false;
+		image_speed = walkSpeed / 3;
+		break;
+	case "idle":
+		image_speed = idleSpeed / 25;
+		break;
+	case "idleLong":
+		image_speed = idleSpeed / 25;
+		var timeIdle = current_time - idleStartTime - longIdleThreshold;
+		var idleIndex = floor(timeIdle / 1000);
+		image_index = min(idleIndex, image_number - 1); 
 }

@@ -54,11 +54,36 @@ sprite_index = subMap[? action];
 
 switch (action)
 {
+	case "damage":
+		idling = false;
+		y = oldY;
+		x = oldX;
 	case "attack":
 		idling = false;
 		y = oldY;
 		x = oldX;
 		image_speed = attackSpeed / 3;
+		with (fists)
+		{
+			x = other.x;
+			y = other.y;
+		}
+		if (image_index == 2)
+		{
+			with (fists)
+			{
+				var array = spriteMap[? other.imageDirection];
+				sprite_index = array[0];
+			}
+		}
+		if (image_index == 4)
+		{
+			with (fists)
+			{
+				var array = spriteMap[? other.imageDirection];
+				sprite_index = array[1];
+			}
+		}
 		break;
 	case "move":
 		idling = false;

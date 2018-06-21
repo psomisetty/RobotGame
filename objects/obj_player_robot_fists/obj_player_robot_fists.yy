@@ -1,33 +1,23 @@
 {
-    "id": "af76d16e-bba6-49f4-a6af-4c6e3f100418",
+    "id": "c6d35c5e-14e8-4f96-beaf-ba53c25ed44f",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_gameMaster",
+    "name": "obj_player_robot_fists",
     "eventList": [
         {
-            "id": "57f9ef71-462a-4d1e-880a-9ec574633c1f",
+            "id": "18ce8889-6699-47f1-8d0a-4d8eddb1ab0c",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "af76d16e-bba6-49f4-a6af-4c6e3f100418"
-        },
-        {
-            "id": "e5568d56-5738-42cc-be48-23b943f0d4d7",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "af76d16e-bba6-49f4-a6af-4c6e3f100418"
+            "m_owner": "c6d35c5e-14e8-4f96-beaf-ba53c25ed44f"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "80b2daaf-b74c-4ba5-bf28-2077ef0cfe65",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -41,10 +31,8 @@
     "physicsShape": 1,
     "physicsShapePoints": null,
     "physicsStartAwake": true,
-    "properties": [
-        
-    ],
+    "properties": null,
     "solid": false,
     "spriteId": "00000000-0000-0000-0000-000000000000",
-    "visible": false
+    "visible": true
 }

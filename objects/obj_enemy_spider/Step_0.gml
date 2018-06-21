@@ -1,5 +1,8 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Do a random walk until death
+if not (self.awake)
+{
+	exit;
+}
 timer--;
 if (timer <= 0)
 {
